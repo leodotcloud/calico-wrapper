@@ -7,9 +7,9 @@ fi
 SRC_DIR=/opt/calico
 CNI_CONFIG_FILE_NAME=10-calico.conf
 
-CNI_CONFIG_DIRECTORY=/etc/net.d/cni
+CNI_CONFIG_DIRECTORY=/opt/rancher/cni
 
-if [ ! -d "{CNI_CONFIG_DIRECTORY}" ]; then
+if [ ! -d "${CNI_CONFIG_DIRECTORY}" ]; then
     echo "Error: Couldn't find ${CNI_CONFIG_DIRECTORY}, this should have been available from 'volumes_from'"
     exit 1
 fi
@@ -24,4 +24,5 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-exit 0
+echo "Going into hibernation"
+sleep infinity
